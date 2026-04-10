@@ -51,3 +51,14 @@ def get_summary():
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+@app.get("/logs/count")
+def get_count(severity: Optional[str] = Query(None)):
+    db = SessionLocal()
+    try:
+        query = db.query(LogRecord)
+        if severity:
+            query = query.filter(LogRecord.severity == severity.upper())
+        return {"count": query.count()}
+    finally:
+        db.close()
