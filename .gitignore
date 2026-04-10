@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+
+# C++ build
+build/
+*.exe
+*.obj
+*.pdb
+
+# Database
+db/logs.db
+
+# VS2022
+.vs/
+out/
+CMakeSettings.json
